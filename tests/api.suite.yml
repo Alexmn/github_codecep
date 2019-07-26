@@ -1,0 +1,6 @@
+actor: ApiTester
+modules:
+    enabled:
+        - \TEST\Helper\Api
+        - REST:
+            depends: PhpBrowser
