@@ -1,0 +1,11 @@
+{
+    "name": "test/codecept",
+    "type": "project",
+    "require": {
+        "codeception/codeception": "3.0.3"
+    },
+    "license": "proprietary",
+    "config": {
+        "bin-dir": "bin/"
+    }
+}
