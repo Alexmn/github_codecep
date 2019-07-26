@@ -5,7 +5,3 @@ modules:
         - REST:
             depends: PhpBrowser
             url: 'https://developer.github.com'
-
-
-
-
