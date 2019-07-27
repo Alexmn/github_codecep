@@ -14,9 +14,9 @@ class ApiRoutesPage
         return base64_encode(self::$username .':'.self::$password);
     }
 
-    public static function composePostBody(): string
+    public static function composePostBody($name): string
     {
-        $arrayData['name'] = "hello world - " . microtime();
+        $arrayData['name'] = $name;
         $arrayData['auto_init'] = true;
 
         return json_encode($arrayData);
