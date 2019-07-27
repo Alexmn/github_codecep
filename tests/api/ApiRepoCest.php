@@ -23,7 +23,7 @@ class ApiRepoCest
     {
         $I->amGoingTo('create first repo test');
         ApiRoutesStep::getAuthorizedApiHeaders($I);
-        $I->sendPOST(ApiRoutesPage::$generalUrl(), ApiRoutesPage::composePostBody($name));
+        $I->sendPOST(ApiRoutesPage::$generalUrl, ApiRoutesPage::composePostBody($name));
         $I->canSeeResponseCodeIs(HttpCode::CREATED);
     }
 
