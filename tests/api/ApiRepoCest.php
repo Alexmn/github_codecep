@@ -1,23 +1,19 @@
-<?php namespace TEST;
+<?php
+namespace TEST;
 
 use Codeception\Util\HttpCode;
-use http\Params;
-use PharIo\Manifest\Url;
-use phpDocumentor\Reflection\DocBlock\Tags\Param;
 use TEST\ApiTester;
+use TEST\Page\ApiRoutesPage;
+use TEST\Step\Api\ApiRoutesStep;
 
 class ApiRepoCest
 {
-    const URL = 'https://developer.github.com';
-
-    public function _before(ApiTester $I)
+    public function getRepoUsers(ApiTester $I)
     {
-    }
-
-    public function getRepo(ApiTester $I)
-    {
-        $I->amGoingTo('intergotate github for first check api');
-        $I->sendGET(self::URL);
+        $I->amGoingTo('Interogate github in order to get all user repos');
+        ApiRoutesStep::getAuthorizedApiHeaders($I);
+        $I->sendGET(ApiRoutesPage::$URL);
         $I->canSeeResponseCodeIs(HttpCode::OK);
+        $I->canSeeResponseIsJson();
     }
 }
