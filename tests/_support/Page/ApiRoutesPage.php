@@ -6,8 +6,10 @@ class ApiRoutesPage
     public static $URL         = 'https://api.github.com';
     public static $generalUrl  = 'https://api.github.com/user/repos';
     public static $specificUrl = '/repos/';
+    public static $repoName    = ['repo1', 'repo2', 'repo3'];
     private static $username   = 'githubCodeception';
     private static $password   = 'TestareGithub1';
+
 
     public static function getToken(): string
     {
