@@ -1,6 +1,7 @@
 <?php
 namespace TEST;
 
+use Codeception\Module\Asserts;
 use Codeception\Util\HttpCode;
 use TEST\ApiTester;
 use TEST\Page\ApiRoutesPage;
@@ -30,7 +31,7 @@ class ApiRepoCest
     {
         $I->amGoingTo('Interogate github in order to get all user repos');
         ApiRoutesStep::getAuthorizedApiHeaders($I);
-        $I->sendGET(ApiRoutesPage::$URL);
+        $I->sendGET(ApiRoutesPage::$generalUrl);
         $I->canSeeResponseCodeIs(HttpCode::OK);
         $I->canSeeResponseIsJson();
 
@@ -60,8 +61,14 @@ class ApiRepoCest
         $this->createRepoResource($I, ApiRoutesPage::$repoName[2]);
         $this->deleteRepoResource($I, ApiRoutesPage::$repoName[0], HttpCode::NO_CONTENT);
         $this->deleteRepoResource($I, ApiRoutesPage::$repoName[0], HttpCode::NOT_FOUND);
-        $result = $this->getRepoUsers($I);
 
+        //am fost nevoit sa il pun deoarece api-ul raspunde atat de repede incat in loc sa pice testul
+        //de validare ca nu se mai gaseste repo-ul sters, primesc pe raspuns ca mai exista inca
+        sleep(1);
+        $this->getRepoUsers($I);
+        $I->seeResponseContainsJson(array('name' => ApiRoutesPage::$repoName[1]));
+        $I->seeResponseContainsJson(array('name' => ApiRoutesPage::$repoName[2]));
+        $I->seeResponseContainsJson(array('name' => ApiRoutesPage::$repoName[0]));
 //        $this->deleteRepoResource($I, ApiRoutesPage::$repoName[1], HttpCode::NO_CONTENT);
 //        $this->deleteRepoResource($I, ApiRoutesPage::$repoName[2], HttpCode::NO_CONTENT);
     }

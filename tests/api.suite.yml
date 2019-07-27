@@ -4,3 +4,4 @@ modules:
         - \TEST\Helper\Api
         - REST:
             depends: PhpBrowser
+        - Asserts
