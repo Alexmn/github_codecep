@@ -39,3 +39,5 @@ testing_phase for you to see if the script runs no matter what is the order of r
 The only mention i have to say is that for running, the codeception module works only from cest files 
 and only for public functions. this is why i arranged all the testing phase in one public method 
 and the rest in private ones.
+
+Have fun! :) 
