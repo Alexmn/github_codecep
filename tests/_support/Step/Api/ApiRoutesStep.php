@@ -10,6 +10,7 @@ class ApiRoutesStep extends ApiTester
     public static function getAuthorizedApiHeaders(ApiTester $I): void
     {
         $I->haveHttpHeader('Accept', 'application/vnd.github.v3+json');
+        $I->haveHttpHeader('Accept', 'application/json');
         $I->haveHttpHeader('Authorization', 'Basic ' . ApiRoutesPage::getToken());
     }
 }
