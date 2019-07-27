@@ -59,7 +59,7 @@ class ApiRepoCest
         $this->createRepoResource($I, ApiRoutesPage::$repoName[1]);
         $this->createRepoResource($I, ApiRoutesPage::$repoName[2]);
         $this->deleteRepoResource($I, ApiRoutesPage::$repoName[0], HttpCode::NO_CONTENT);
-        $this->deleteRepoResource($I, ApiRoutesPage::$repoName[0], HttpCode::NO_CONTENT);
+        $this->deleteRepoResource($I, ApiRoutesPage::$repoName[0], HttpCode::NOT_FOUND);
         $result = $this->getRepoUsers($I);
 
 //        $this->deleteRepoResource($I, ApiRoutesPage::$repoName[1], HttpCode::NO_CONTENT);
