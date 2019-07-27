@@ -6,20 +6,20 @@ ssh key or at least normal user account on github
 
 the user and password for the "testing repos" can be found in `github_codecep/tests/_support/Page/ApiRoutesPage.php`
 
-needed php installed for execution on max or linux
+needed php installed for execution on mac or linux
 
 git clone repository in www folder: https://github.com/Alexmn/github_codecep
  
-go to the route of the testing folder: /var/www/github_codecep
+go to the route of the testing folder: `/var/www/github_codecep`
 
-php composer.phar install -> installing dependencies
+installing dependencies `php composer.phar install` 
 
 run following command: `php bin/codecept build`
 
 
 **testing:** 
 
-all the running commands start with: `php bin/codecept run` and from the repo folder.
+commands will be runned from the repo folder: `/var/www/github_codecep`
 
 running with junit report:  `php bin/codecept run api --xml --debug --steps -vvv`
 
