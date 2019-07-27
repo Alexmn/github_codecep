@@ -3,9 +3,11 @@ namespace TEST\Page;
 
 class ApiRoutesPage
 {
-    public static $URL       = 'https://api.github.com/user/repos';
-    private static $username = 'githubCodeception';
-    private static $password = 'TestareGithub1';
+    public static $URL         = 'https://api.github.com';
+    public static $generalUrl  = 'https://api.github.com/user/repos';
+    public static $specificUrl = '/repos/';
+    private static $username   = 'githubCodeception';
+    private static $password   = 'TestareGithub1';
 
     public static function getToken(): string
     {
@@ -20,4 +22,8 @@ class ApiRoutesPage
         return json_encode($arrayData);
     }
 
+    public static function getSpecificRepoActionUrl($name): string
+    {
+        return self::$URL . self::$specificUrl . self::$username . '/' . $name;
+    }
 }

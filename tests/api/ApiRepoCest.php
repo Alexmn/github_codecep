@@ -21,13 +21,24 @@ class ApiRepoCest
     {
         $I->amGoingTo('create first repo test');
         ApiRoutesStep::getAuthorizedApiHeaders($I);
-        $I->sendPOST(ApiRoutesPage::$URL, ApiRoutesPage::composePostBody());
+        $I->sendPOST(ApiRoutesPage::$generalUrl(), ApiRoutesPage::composePostBody());
         $I->canSeeResponseCodeIs(HttpCode::CREATED);
+    }
+
+    private function deleteRepoResource(ApiTester $I, $name): void
+    {
+        $I->amGoingTo('delete repository for a given id');
+        ApiRoutesStep::getAuthorizedApiHeaders($I);
+        $I->sendDELETE(ApiRoutesPage::getSpecificRepoActionUrl($nameg));
+        $I->canSeeResponseCodeIs(HttpCode::NO_CONTENT);
     }
 
     public function runningPhase(ApiTester $I): void
     {
         $this->createRepoResource($I);
+        $this->createRepoResource($I);
+        $this->createRepoResource($I);
         $this->getRepoUsers($I);
+        $this->deleteRepoResource($I,$name);
     }
 }
