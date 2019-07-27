@@ -37,5 +37,5 @@ not be altered.(if posible).
 all you need to do is to comment / uncomment the code you want to run. I let the same disabled lines in the 
 testing_phase for you to see if the script runs no matter what is the order of running steps.
 The only mention i have to say is that for running, the codeception module works only from cest files 
-and only for public functions. this is why i arraged all the testing phase in one public method 
+and only for public functions. this is why i arranged all the testing phase in one public method 
 and the rest in private ones.
